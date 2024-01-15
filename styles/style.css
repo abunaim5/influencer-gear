@@ -45,6 +45,27 @@ body {
 
 }
 
+.primary-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 35px;
+    border: none;
+    border-radius: 40px;
+    background-color: var(--secondary-color);
+    padding: 10px 25px;
+    color: #FFF;
+    font-family: var(--font-family-poppins);
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-700);
+    cursor: pointer;
+}
+
+.primary-btn .arrow-icon {
+    filter: invert(1);
+}
+
 /* Header section styles */
 .header {
     width: 75%;
@@ -137,22 +158,6 @@ nav>ul li a #cart-icon {
     font-weight: var(--font-weight-600);
 }
 
-.banner-section .prebook-btn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 35px;
-    border: none;
-    border-radius: 40px;
-    background: var(--secondary-color);
-    padding: 10px 25px;
-    color: #FFF;
-    font-family: var(--font-family-poppins);
-    font-size: var(--font-size-16);
-    font-weight: var(--font-weight-700);
-    cursor: pointer;
-}
-
 .prebook-btn .arrow-icon {
     filter: invert(1);
 }
@@ -196,9 +201,8 @@ main {
 /* Popular collection styles */
 .collection-container {
     width: 75%;
-    margin: 0 auto;
-    border: 1px solid tomato;
-    /* text-align: center; */
+    margin: 100px auto 0;
+    position: relative;
 }
 
 .collection-container>h3 {
@@ -211,10 +215,16 @@ main {
 
 }
 
-.collection-items-container {}
+.collection-items-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 30px;
+    /* border: 2px solid blueviolet; */
+    margin-top: 30px;
+}
 
 .collection-items {
-    width: 23%;
     padding: 18px 15px;
     border-radius: 5px;
     background-color: #FFF;
@@ -247,8 +257,6 @@ main {
     align-items: center;
 }
 
-.collection-items .items-rating img {}
-
 .items-rating .rate-count {
     margin-left: 5px;
     color: var(--gray-80);
@@ -266,13 +274,22 @@ main {
     margin-top: 3px;
 }
 
+.collection-container #see-more-btn {
+    position: absolute;
+    left: 1275px;
+}
+
 
 
 /* Media query styles */
 @media screen and (max-width:576px) {
-    .header {
+
+    .header,
+    .collection-container,
+    .sponsors-section {
         width: 100%;
         margin-top: 35px;
+        padding: 0 10px;
     }
 
     nav {
@@ -296,7 +313,6 @@ main {
     /* banner section */
     .banner-section {
         width: 100%;
-        padding: 0 10px;
         flex-direction: column-reverse;
         justify-content: center;
         text-align: center;
@@ -314,7 +330,7 @@ main {
         width: 100%;
     }
 
-    .banner-section .prebook-btn {
+    .banner-section .primary-btn {
         margin: 25px auto 0;
     }
 
@@ -323,7 +339,7 @@ main {
     }
 
     .banner-img img {
-        width: 75%;
+        width: 72%;
         margin-top: 30px;
     }
 
@@ -332,16 +348,23 @@ main {
         margin-top: 50px;
     }
 
-    .sponsors-section {
-        width: 100%;
-    }
-
     .sponsors-section hr {
         display: none;
     }
 
     .sponsors-logo {
+        padding: 0;
         flex-wrap: wrap;
         gap: 12px;
+    }
+
+    /* Popular collection styles */
+
+    .collection-items-container {
+        grid-template-columns: 1fr;
+    }
+
+    .collection-container #see-more-btn {
+        left: 250px;
     }
 }
